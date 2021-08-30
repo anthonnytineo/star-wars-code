@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Personajes from "./componentes/Personajes";
+import Navbar from "./componentes/Navbar";
 import Ficha from "./componentes/Ficha";
 import "./App.css";
 
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Breaking Bad API</h1>
+      <Navbar />
       <Personajes seleccionarPersonaje={seleccionarPersonaje} />
       <Ficha id={personajeId} />
     </div>

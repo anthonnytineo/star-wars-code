@@ -5,9 +5,9 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-sm navbar-light bg-light">
       <div className="container">
-        <Link className="navbar-brand" to="#">
+        <a class="navbar-brand" href="#">
           Navbar
-        </Link>
+        </a>
         <div className="dropdown">
           <button
             className="btn btn-primary dropdown-toggle"
