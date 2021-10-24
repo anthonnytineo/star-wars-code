@@ -1,24 +1,27 @@
-import React, { useState } from "react";
-import Personajes from "./componentes/Personajes";
-import Navbar from "./componentes/Navbar";
-import Ficha from "./componentes/Ficha";
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from "./components2/Navbar";
+import Footer from "./components2/Footer";
+import Index2 from "./components2/Index2";
+import InfoCard from "./components2/InfoCards";
+import InfoPlanets from "./components2/InfoPlanets";
+import injectContext from "./store/appContext";
 import "./App.css";
 
-function App() {
-  const [personajeId, setPersonajeId] = useState("");
-
-  const seleccionarPersonaje = (id) => {
-    setPersonajeId(id);
-    //console.log(personajeId);
-  };
-
+const App = (props) => {
   return (
-    <div className="App">
-      <Navbar />
-      <Personajes seleccionarPersonaje={seleccionarPersonaje} />
-      <Ficha id={personajeId} />
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Index2} />
+          <Route exact path="/infocard/:id" component={InfoCard} />
+          <Route exact path="/infoplanets/:id" component={InfoPlanets} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
-}
+};
 
-export default App;
+export default injectContext(App);
